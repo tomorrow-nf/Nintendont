@@ -1059,16 +1059,7 @@ int main(int argc, char **argv)
 			if(STATUS_LOADING == -3)
 				PrintFormat(DEFAULT_SIZE, MAROON, MENU_POS_X, MENU_POS_Y + 20*9, "Mounting USB/SD device... Error! %d  Shutting down", STATUS_ERROR);
 			if(STATUS_LOADING == 5) {
-	/* 			if (timeout == 0)
-					timeout = ticks_to_secs(gettime()) + 20; // Set timer for 20 seconds
-				else if (timeout <= ticks_to_secs(gettime())) {
-					STATUS_ERROR = -7;
-					DCFlushRange(STATUS, 0x20);
-					usleep(100);
-					//memset( (void*)0x92f00000, 0, 0x100000 );
-					//DCFlushRange( (void*)0x92f00000, 0x100000 );
-					//ExitToLoader(1);
-				}*/
+
 				PrintFormat(DEFAULT_SIZE, (STATUS_ERROR == -7) ? MAROON:BLACK, MENU_POS_X, MENU_POS_Y + 20*10, (STATUS_ERROR == -7) ? "Checking FS... Timeout!" : "Checking FS...");
 			}
 			if(abs(STATUS_LOADING) > 5 && abs(STATUS_LOADING) < 20)
@@ -1088,62 +1079,7 @@ int main(int argc, char **argv)
 				PrintFormat(DEFAULT_SIZE, BLACK, MENU_POS_X, MENU_POS_Y + 20*13, "Loading config...");
 			if(abs(STATUS_LOADING) > 7 && abs(STATUS_LOADING) < 20)
 				PrintFormat(DEFAULT_SIZE, BLACK, MENU_POS_X, MENU_POS_Y + 20*13, "Loading config... Done!");
-			/*if(STATUS_LOADING == 8)
-			{
-				PrintFormat(DEFAULT_SIZE, BLACK, MENU_POS_X, MENU_POS_Y + 20*14, "Init HID devices... ");
-				if ( STATUS_ERROR == 1)
-				{
-					PrintFormat(DEFAULT_SIZE, BLACK, MENU_POS_X, MENU_POS_Y + 20*15, "          Make sure the Controller is plugged in");
-				}
-				else
-					PrintFormat(DEFAULT_SIZE, BLACK, MENU_POS_X, MENU_POS_Y + 20*15, "%50s", " ");
-			}
-			if(abs(STATUS_LOADING) > 8 && abs(STATUS_LOADING) < 20)
-			{
-				if (ncfg->Config & NIN_CFG_NATIVE_SI)
-					PrintFormat(DEFAULT_SIZE, BLACK, MENU_POS_X, MENU_POS_Y + 20*14, "Init HID devices... Using ONLY NATIVE Gamecube Ports");
-				else if ((ncfg->MaxPads == 1) && (ncfg->Config & NIN_CFG_HID))
-					PrintFormat(DEFAULT_SIZE, BLACK, MENU_POS_X, MENU_POS_Y + 20*14, "Init HID devices... Using Gamecube and HID Ports");
-				else if ((ncfg->MaxPads > 0) && (ncfg->Config & NIN_CFG_HID))
-					PrintFormat(DEFAULT_SIZE, BLACK, MENU_POS_X, MENU_POS_Y + 20*14, "Init HID devices... Using Gamecube, HID, and BT Ports");
-				else if (ncfg->MaxPads > 0)
-					PrintFormat(DEFAULT_SIZE, BLACK, MENU_POS_X, MENU_POS_Y + 20*14, "Init HID devices... Using Gamecube and BT Ports");
-				else if (ncfg->Config & NIN_CFG_HID)
-					PrintFormat(DEFAULT_SIZE, BLACK, MENU_POS_X, MENU_POS_Y + 20*14, "Init HID devices... Using HID and Bluetooth Ports");
-				else
-					PrintFormat(DEFAULT_SIZE, BLACK, MENU_POS_X, MENU_POS_Y + 20*14, "Init HID devices... Using Bluetooth Ports... Done!");
-			}
-			if(STATUS_LOADING == -8)
-			{
-				PrintFormat(DEFAULT_SIZE, MAROON, MENU_POS_X, MENU_POS_Y + 20*14, "Init HID devices... Failed! Shutting down");
-				switch (STATUS_ERROR)
-				{
-					case -1:
-						PrintFormat(DEFAULT_SIZE, MAROON, MENU_POS_X, MENU_POS_Y + 20*15, "No Controller plugged in! %25s", " ");
-						break;
-					case -2:
-						PrintFormat(DEFAULT_SIZE, MAROON, MENU_POS_X, MENU_POS_Y + 20*15, "Missing %s:/controller.ini %20s", GetRootDevice(), " ");
-						break;
-					case -3:
-						PrintFormat(DEFAULT_SIZE, MAROON, MENU_POS_X, MENU_POS_Y + 20*15, "Controller does not match %s:/controller.ini %6s", GetRootDevice(), " ");
-						break;
-					case -4:
-						PrintFormat(DEFAULT_SIZE, MAROON, MENU_POS_X, MENU_POS_Y + 20*15, "Invalid Polltype in %s:/controller.ini %12s", GetRootDevice(), " ");
-						break;
-					case -5:
-						PrintFormat(DEFAULT_SIZE, MAROON, MENU_POS_X, MENU_POS_Y + 20*15, "Invalid DPAD value in %s:/controller.ini %9s", GetRootDevice(), " ");
-						break;
-					case -6:
-						PrintFormat(DEFAULT_SIZE, MAROON, MENU_POS_X, MENU_POS_Y + 20*15, "PS3 controller init error %25s", " ");
-						break;
-					case -7:
-						PrintFormat(DEFAULT_SIZE, MAROON, MENU_POS_X, MENU_POS_Y + 20*15, "Gamecube adapter for Wii u init error %13s", " ");
-						break;
-					default:
-						PrintFormat(DEFAULT_SIZE, MAROON, MENU_POS_X, MENU_POS_Y + 20*15, "Unknown error %d %35s", STATUS_ERROR, " ");
-						break;
-				}
-			}*/
+
 			if(STATUS_LOADING == 9)
 				PrintFormat(DEFAULT_SIZE, BLACK, MENU_POS_X, MENU_POS_Y + 20*14, "Init DI... %40s", " ");
 			if(abs(STATUS_LOADING) > 9 && abs(STATUS_LOADING) < 20)

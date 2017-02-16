@@ -945,25 +945,6 @@ static const char *const *GetSettingsDescription(const MenuCtx *ctx)
 				return desc_memcard_multi;
 			}
 
-			case NIN_SETTINGS_NATIVE_SI: {
-				static const char *desc_native_si[] = {
-					"Native Control allows use of",
-					"GBA link cables on original",
-					"Wii systems.",
-					"",
-					"NOTE: Enabling Native Control",
-					"will disable Bluetooth and",
-					"USB HID controllers.",
-					"",
-					"This option is not available",
-					"on Wii U, since it does not",
-					"have built-in GameCube",
-					"controller ports.",
-					NULL
-				};
-				return desc_native_si;
-			}
-
 			default:
 				break;
 		}
@@ -1289,14 +1270,6 @@ static bool UpdateSettingsMenu(MenuCtx *ctx)
 					ncfg->Config ^= (NIN_CFG_MC_MULTI);
 					break;
 
-				case NIN_SETTINGS_NATIVE_SI:
-					// NOTE: Not adjustable on Wii U.
-					// TODO: Also RVL-101?
-					if (!IsWiiU()) {
-						ncfg->Config ^= (NIN_CFG_NATIVE_SI);
-					}
-					break;
-
 				default:
 					break;
 			}
@@ -1453,10 +1426,9 @@ static bool UpdateSettingsMenu(MenuCtx *ctx)
 		ListLoopIndex+=2;
 
 		// Native controllers. (Required for GBA link; disables Bluetooth and USB HID.)
-		// TODO: Gray out on RVL-101?
-		PrintFormat(MENU_SIZE, (IsWiiU() ? DARK_GRAY : BLACK), MENU_POS_X + 50, SettingY(ListLoopIndex),
-			    "%-18s:%-4s", OptionStrings[ListLoopIndex],
-			    (ncfg->Config & (NIN_CFG_NATIVE_SI)) ? "On " : "Off");
+		// Tournament Edition: Always enabled
+		PrintFormat(MENU_SIZE, (DARK_GRAY), MENU_POS_X + 50, SettingY(ListLoopIndex),
+			    "%-18s:%-4s", OptionStrings[ListLoopIndex], "Enabled");
 		ListLoopIndex++;
 
 		/** Right column **/
@@ -1507,8 +1479,7 @@ static bool UpdateSettingsMenu(MenuCtx *ctx)
 		// Draw the cursor.
 		if (ctx->settings.settingPart == 0) {
 			u32 cursor_color = BLACK;
-			if ((!IsWiiU() && ctx->settings.posX == NIN_CFG_BIT_USB) ||
-			     (IsWiiU() && ctx->settings.posX == NIN_CFG_NATIVE_SI))
+			if ((!IsWiiU() && ctx->settings.posX == NIN_CFG_BIT_USB)
 			{
 				// Setting is not usable on this platform.
 				// Gray out the cursor, too.

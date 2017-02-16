@@ -1,8 +1,8 @@
-### Nintendont
-A Wii Homebrew Project to play GC Games on Wii and vWii on Wii U
+### Nintendont: Tournament Edition
+A Wii Homebrew Project to play GC Games on Wii, with Native Control settings locked as Enabled. Ideal and intended for SSBM tournament setups.
 
 ### Features:
-* Works on Wii and Wii U (in vWii mode)
+* Works on Wii (Wii U mode is rendered useless by the changes made to Native Control in TE)
 * Full-speed loading from a USB device or an SD card.
 * Loads 1:1 and shrunken .GCM/.ISO disc images.
 * Loads games as extracted files (FST format)
@@ -11,10 +11,8 @@ A Wii Homebrew Project to play GC Games on Wii and vWii on Wii U
 * Play audio via disc audio streaming
 * Bluetooth controller support (Classic Controller (Pro), Wii U Pro Controller)
 * HID controller support via USB
-* Custom button layout when using HID controllers
 * Cheat code support
 * Changeable configuration of various settings
-* Reset/Power off via button combo (R + Z + Start) (R + Z + B + D-Pad Down)
 * Advanced video mode patching, force progressive and force 16:9 widescreen
 * Auto boot from loader
 * Disc switching

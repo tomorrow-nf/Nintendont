@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
 <app version="1">
 	<name>Nintendont</name>
-	<coder>FIX94, crediar</coder>
-	<version>4.431</version>
-	<release_date>20161218000000</release_date>
+	<coder>FIX94, crediar, NFreak [TE]</coder>
+	<version>4.436</version>
+	<release_date>20170218000000</release_date>
 	<short_description>Gamecube Loader</short_description>
-	<long_description>Commiters: GerbilSoft, JoostinOnline, GreyRogue, Howard, Cyan, nastys 
+	<long_description>Committers: GerbilSoft, JoostinOnline, GreyRogue, Howard, Cyan, nastys, NFreak [TE] 
 
- Project website: https://github.com/FIX94/Nintendont 
+ Project website: https://github.com/tomorrow-nf/Nintendont-TE
 
-Nintendont allows you to run GameCube games on a Wii or Wii U from an SD or HDD device.</long_description>
+Nintendont allows you to run GameCube games on a Wii from an SD or HDD device.
+
+Tournament Edition enables Native Control by default and prevents users from disabling it. This is to prevent headache with misconfigured SSBM tournament setups.</long_description>
 	<no_ios_reload/>
 	<ahb_access/>
 </app>
