@@ -16,9 +16,6 @@ A Wii Homebrew Project to play GC Games on Wii, with Native Control settings loc
 * Advanced video mode patching, force progressive and force 16:9 widescreen
 * Auto boot from loader
 * Disc switching
-* Use the official Nintendo GameCube controller adapter
-
-### Features: (Wii only)
 * Play retail discs
 * Play backups from writable DVD media (Old Wii only)
 * Use real memory cards
